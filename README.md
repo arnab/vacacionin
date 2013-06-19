@@ -13,21 +13,26 @@ Something to plan vacations with. Shhh....
 #### Database initialization
 1. Start `postgresql` with the app noted above
 1. `psql`
-
-##### Users
-* Create the user in pg: `create role vacacionin login createdb;`
-
-##### `geonames` DB
-* Manually create this second DB:
+1. Create the user in pg:
+  `create role vacacionin login createdb;`
+1. Manually create the second (`geonames`) DB:
   `CREATE DATABASE geonames_development WITH TEMPLATE = template0 ENCODING = 'UTF8';`
-
-##### `vacacionin` DB
-* `rake db:setup`
+1. `rake db:setup`
+1. `rake db:migrate`
 
 ##### Additional data
-The DB seed data has some places data in it. If you want to load the full set (8+ million):
-  1. Download [geonames.org allCountries.zip (`200+ MB`)](http://download.geonames.org/export/dump/allCountries.zip) and unzip
-  1. Follow the steps [here](https://gist.github.com/arnab/5813302)
+The DB seed data has some places (geonames) data in it. If you want to load the full set (8+ million):
+
+1. Download [geonames.org allCountries.zip (`200+ MB`)](http://download.geonames.org/export/dump/allCountries.zip) and unzip
+1. `psql`
+1. `\c geonames_development`
+1. Copy the data:
+  ```
+  copy geoname (
+    geonameid,name,asciiname,alternatenames,latitude,longitude,fclass,fcode,country,cc2,
+    admin1,admin2,admin3,admin4,population,elevation,gtopo30,timezone,moddate
+  ) from '~/Downloads/allCountries.txt' null as '';
+  ```
 
 #### How to run the test suite
 * `rake test`
