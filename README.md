@@ -31,6 +31,7 @@ The DB seed data has some places (geonames) data in it. If you want to load the 
 1. Copy the data:
 
 ```sql
+  delete from geoname;
   copy geoname (
     geonameid,name,asciiname,alternatenames,latitude,longitude,fclass,fcode,country,cc2,
     admin1,admin2,admin3,admin4,population,elevation,gtopo30,timezone,moddate
