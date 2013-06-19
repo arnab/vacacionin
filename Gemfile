@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'pry'
   gem 'pry-debugger'
+  gem 'pry-rails'
 end
 
 group :doc do
