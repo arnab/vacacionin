@@ -20,6 +20,7 @@ Something to plan vacations with. Shhh....
   `CREATE DATABASE geonames_development WITH TEMPLATE = template0 ENCODING = 'UTF8';`
 1. `rake db:setup`
 1. `rake db:migrate`
+1. `rake db:seed`
 
 ##### Additional data
 The DB seed data has some places (geonames) data that should suffice for running tests. You will want to load the full set for dev:
