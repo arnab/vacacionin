@@ -51,10 +51,10 @@ test:
   username: vacacionin
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: vacacionin_production
-  pool: 5
-  username: vacacionin
-  password:
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: vacacionin_production
+#   pool: 5
+#   username: vacacionin
+#   password:
