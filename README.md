@@ -22,7 +22,7 @@ Something to plan vacations with. Shhh....
 1. `rake db:migrate`
 
 ##### Additional data
-The DB seed data has some places (geonames) data in it. If you want to load the full set (8+ million):
+The DB seed data has some places (geonames) data that should suffice for running tests. You will want to load the full set for dev:
 
 1. Download [allCountries.zip from geonames.org](http://download.geonames.org/export/dump/allCountries.zip) and unzip
   * Note that it's  200+ MB of data (8+ million rows)
@@ -31,8 +31,8 @@ The DB seed data has some places (geonames) data in it. If you want to load the 
 1. Copy the data:
 
 ```sql
-  delete from geoname;
-  copy geoname (
+  delete from geonames;
+  copy geonames (
     geonameid,name,asciiname,alternatenames,latitude,longitude,fclass,fcode,country,cc2,
     admin1,admin2,admin3,admin4,population,elevation,gtopo30,timezone,moddate
   ) from '~/Downloads/allCountries.txt' null as '';
